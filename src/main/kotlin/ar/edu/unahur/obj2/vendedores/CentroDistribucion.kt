@@ -4,7 +4,11 @@ package ar.edu.unahur.obj2.vendedores
 class CentroDistribucion(radicadoEn:Ciudad , val vendedoresDelCentro: MutableList<Vendedor>){
 
     // AGREGA 1 VENDEDOR A LA LISTA
-    fun agregarVendedor(vendedor:Vendedor) = vendedoresDelCentro.add(vendedor)
+    fun agregarVendedor(vendedor:Vendedor) {
+        if (vendedoresDelCentro.contains(vendedor)){
+            throw IllegalArgumentException("NO SE PUEDE INGRESAR UN VENDEDOR QUE ESTA EN EL SISTEMA")
+        }
+    }
 
     // RETORNA 1Vendedor
     // El que tiene  mayor puntaje total por certificaciones.
